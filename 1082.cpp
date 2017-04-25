@@ -5,6 +5,7 @@ CPU    : 0.316s
 Memory : 3252KB
 */
 
+
 #include<bits/stdc++.h>
 
 #define MAX_ELEMENTS 100010
