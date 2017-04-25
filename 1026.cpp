@@ -1,23 +1,20 @@
 /**
-Author : Zubayer Rahman
-Email  : zubayer.csesust@gmail.com
-CPU    : 0.572s
-Memory : 12400
+Author    : Zubayer Rahman
+Email     : zubayer.csesust@gmail.com
+CPU       : 0.572s
+Memory    : 12400KB
+Algorithm : Articulation Point/Bridge
 */
 
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<iostream>
-#include<queue>
-#include<set>
-#include<algorithm>
+#include<bits/stdc++.h>
 
 #define MAX_NODE 10005
 
 using namespace std;
 
-int testCase,caseNum=1,n,u,k,v,tim=0;
+int testCases,caseNumber=1;
+int n,u,k,v,tim=0;
 int low[MAX_NODE],dis[MAX_NODE],parent[MAX_NODE];
 bool visited[MAX_NODE];
 
@@ -52,11 +49,13 @@ void reset()
 
     for(i=0; i<MAX_NODE; i++)
     {
-        visited[i]=false;
-        low[i]=0;
-        parent[i]=-1;
+        visited[i] =false;
+        low[i]     =0;
+        parent[i]  =-1;
+
         vec[i].clear();
     }
+
     tim=0;
 }
 
@@ -71,7 +70,7 @@ void DFS(int root)
 
     while(!vec[root].empty())
     {
-        v=*vec[root].begin();
+        v= *vec[root].begin();
         vec[root].erase(vec[root].begin());
 
         if(visited[v] == false)
@@ -95,14 +94,13 @@ void DFS(int root)
         }
         else if (parent[root] != v)
             low[root] = min(low[root], dis[v]);
-
     }
 }
 
 void printResult()
 {
     int len=Q.size();
-    printf("Case %d:\n%d critical links\n",caseNum++,len);
+    printf("Case %d:\n%d critical links\n",caseNumber++,len);
 
     while(!Q.empty())
     {
@@ -122,9 +120,9 @@ int main()
 
     char num[20];
 
-    scanf("%d", &testCase);
+    scanf("%d", &testCases);
 
-    while(caseNum <= testCase)
+    while(caseNumber <= testCases)
     {
         scanf("%d", &n);
 
