@@ -6,7 +6,6 @@ Memory    : 12400KB
 Algorithm : Articulation Point/Bridge
 */
 
-
 #include<bits/stdc++.h>
 
 #define MAX_NODE 10005
