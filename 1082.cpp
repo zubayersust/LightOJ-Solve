@@ -1,10 +1,13 @@
 /**
-Author : Zubayer Rahman
-Email  : zubayer.csesust@gmail.com
-CPU    : 0.316s
-Memory : 3252KB
+Online Judge : LightOJ
+Problem No   : 1082
+Problem Name : Array Queries
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+CPU          : 0.316s
+Memory       : 3252KB
+Algorithm    : Segment Tree
 */
-
 
 #include<bits/stdc++.h>
 
