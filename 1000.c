@@ -1,10 +1,13 @@
 /**
-Author : Zubayer Rahman
-Email  : zubayer.csesust@gmail.com
-CPU    : 0.000s
-Memory : 1088
+Online Judge : LightOJ
+Problem No   : 1000
+Problem Name : Greetings from LightOJ
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+CPU          : 0.0s
+Memory       : 1088KB
+Algorithm    : Implementation
 */
-
 
 #include<stdio.h>
 
