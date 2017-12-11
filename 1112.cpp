@@ -4,6 +4,16 @@ Email  : zubayer.csesust@gmail.com
 CPU    : 0.280s
 Memory : 3252
 */
+/**
+Online Judge : LightOJ
+Problem No   : 1112
+Problem Name : Curious Robin Hood
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+CPU          : 0.280s
+Memory       : 3252KB
+Algorithm    : Segment Tree
+*/
 
 #include<bits/stdc++.h>
 
