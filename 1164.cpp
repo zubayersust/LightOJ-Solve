@@ -1,9 +1,12 @@
 /**
-Author    : Zubayer Rahman
-Email     : zubayer.csesust@gmail.com
-CPU       : 0.372s
-Memory    : 6376KB
-Algorithm : Segment Tree (Lazy Propagation)
+Online Judge : LightOJ
+Problem No   : 1164
+Problem Name : Horrible Queries
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+CPU          : 0.372s
+Memory       : 6376KB
+Algorithm    : Segment Tree (Lazy Propagation)
 */
 
 #include<bits/stdc++.h>
