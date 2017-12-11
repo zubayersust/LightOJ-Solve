@@ -1,9 +1,12 @@
 /**
-Author    : Zubayer Rahman
-Email     : zubayer.csesust@gmail.com
-CPU       : 0.440s
-Memory    : 2956KB
-Algorithm : Segment Tree (Lazy Propagation)
+Online Judge : LightOJ
+Problem No   : 1080
+Problem Name : Binary Simulation
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+CPU          : 0.440s
+Memory       : 2956KB
+Algorithm    : Segment Tree (Lazy Propagation)
 */
 
 #include<bits/stdc++.h>
