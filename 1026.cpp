@@ -1,9 +1,12 @@
 /**
-Author    : Zubayer Rahman
-Email     : zubayer.csesust@gmail.com
-CPU       : 0.572s
-Memory    : 12400KB
-Algorithm : Articulation Point/Bridge
+Online Judge : LightOJ
+Problem No   : 1026
+Problem Name : Critical Links
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+CPU          : 0.572s
+Memory       : 12400KB
+Algorithm    : Articulation Point/Bridge
 */
 
 #include<bits/stdc++.h>
