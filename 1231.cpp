@@ -5,7 +5,7 @@ Problem Name : Coin Change (I)
 Author       : Zubayer Rahman
 Email        : zubayer.csesust@gmail.com
 CPU          : 0.252s
-Memory       : 1888K
+Memory       : 1888KB
 Algorithm    : Coin Change
 */
 
