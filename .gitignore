@@ -1,0 +1,11 @@
+# Everything
+*
+
+# Except Folders
+!*/
+
+# Except Files
+!*.txt
+!*.c
+!*.cpp
+!*.py
