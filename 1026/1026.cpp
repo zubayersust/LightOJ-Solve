@@ -4,9 +4,9 @@ Problem No   : 1026
 Problem Name : Critical Links
 Author       : Zubayer Rahman
 Email        : zubayer.csesust@gmail.com
-Time Limit   : 2.000s
-CPU          : 0.572s
-Memory       : 12400KB
+Time Limit   : 1.000s
+CPU          : 0.338s
+Memory       : 5224KB
 Algorithm    : Articulation Point/Bridge
 */
 
@@ -21,7 +21,7 @@ int n,u,k,v,tim=0;
 int low[MAX_NODE],dis[MAX_NODE],parent[MAX_NODE];
 bool visited[MAX_NODE];
 
-set<int> vec[MAX_NODE];
+vector<int> vec[MAX_NODE];
 
 class Link
 {
@@ -68,8 +68,6 @@ void DFS(int root)
 
     visited[root]=true;
     low[root]=dis[root]=++tim;
-
-    int len=vec[root].size();
 
     while(!vec[root].empty())
     {
@@ -142,8 +140,8 @@ int main()
             while(k--)
             {
                 scanf("%d", &v);
-                vec[u].insert(v);
-                vec[v].insert(u);
+                vec[u].push_back(v);
+                vec[v].push_back(u);
             }
         }
 
