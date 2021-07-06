@@ -1,47 +1,52 @@
 /**
-Author : Zubayer Rahman
-Email  : zubayer.csesust@gmail.com
-CPU    : 0.512s
-Memory : 8024KB
+Online Judge : LightOJ
+Problem No   : 1129
+Problem Name : Consistency Checker
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+Time Limit   : 1.000s
+CPU          : 0.400s
+Memory       : 7076KB
+Algorithm    : Trie
 */
 
 #include<bits/stdc++.h>
 
+#define MAX_DIGIT 10
+
 using namespace std;
 
-class MyClass
+class PhoneNumber
 {
 public:
-    string str;
-    int len;
+    string number;
+    int numberLength;
 
-    MyClass(string s)
+    PhoneNumber(string number)
     {
-        str = s;
-        len = str.size();
+        this->number=number;
+        this->numberLength = number.size();
     }
 
-    bool operator< (const MyClass& myClass) const
+    bool operator< (const PhoneNumber& phoneNumber) const
     {
-        return len > myClass.str.size();
+        return numberLength > phoneNumber.number.size();
     }
 };
 
-priority_queue<MyClass> q;
+priority_queue<PhoneNumber> Q;
 
 class Node
 {
 public:
     bool word;
-    Node *next[10+1];
+    Node *next[MAX_DIGIT+1];
 
     Node()
     {
         word = false;
 
-        int i;
-
-        for(i=0; i<10; i++)
+        for(int i=0; i<MAX_DIGIT; i++)
             next[i] = NULL;
     }
 };
@@ -53,9 +58,7 @@ void Insert(string s, int len)
 {
     Node *current_node = root;
 
-    int i;
-
-    for(i=0; i<len; i++)
+    for(int i=0; i<len; i++)
     {
         int id = s.at(i) - '0';
 
@@ -79,7 +82,7 @@ void reset(Node *current_node)
 {
     int i;
 
-    for(i=0; i<10; i++)
+    for(i=0; i<MAX_DIGIT; i++)
         if(current_node->next[i])
             reset(current_node->next[i]);
 
@@ -108,18 +111,18 @@ int main()
         {
             cin>>s;
 
-            MyClass myClass(s);
-            q.push(myClass);
+            PhoneNumber phoneNumber(s);
+            Q.push(phoneNumber);
         }
 
         root = new Node();
         consistent = true;
 
-        while(!q.empty())
+        while(!Q.empty())
         {
-            MyClass obj = q.top();
-            q.pop();
-            Insert(obj.str, obj.str.size());
+            PhoneNumber phoneNumber = Q.top();
+            Q.pop();
+            Insert(phoneNumber.number, phoneNumber.numberLength);
         }
 
         if(consistent)
