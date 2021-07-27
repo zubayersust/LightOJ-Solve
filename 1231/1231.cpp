@@ -4,9 +4,10 @@ Problem No   : 1231
 Problem Name : Coin Change (I)
 Author       : Zubayer Rahman
 Email        : zubayer.csesust@gmail.com
-CPU          : 0.252s
-Memory       : 1888KB
-Algorithm    : Coin Change
+Time Limit   : 1.000s
+CPU          : 0.255s
+Memory       : 904KB
+Algorithm    : Dynamic Programming
 */
 
 #include<bits/stdc++.h>
