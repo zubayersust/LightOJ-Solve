@@ -4,8 +4,8 @@ Problem No   : 1082
 Problem Name : Array Queries
 Author       : Zubayer Rahman
 Email        : zubayer.csesust@gmail.com
-CPU          : 0.316s
-Memory       : 3252KB
+CPU          : 0.230s
+Memory       : 2044KB
 Algorithm    : Segment Tree
 */
 
@@ -73,7 +73,7 @@ int main()
 
         make_segment_tree(1,1,n);
 
-        printf("Case %d:\n",p++);
+        printf("Case %d:\n", p++);
 
         for(i=1; i<=q; i++)
         {
