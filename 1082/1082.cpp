@@ -4,6 +4,7 @@ Problem No   : 1082
 Problem Name : Array Queries
 Author       : Zubayer Rahman
 Email        : zubayer.csesust@gmail.com
+Time Limit   : 2.000s
 CPU          : 0.230s
 Memory       : 2044KB
 Algorithm    : Segment Tree
