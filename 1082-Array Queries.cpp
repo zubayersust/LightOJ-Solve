@@ -16,13 +16,13 @@ Algorithm    : Segment Tree
 
 using namespace std;
 
-int testCase, p=1;
+int testCase, p = 1;
 int data[MAX_ELEMENTS];
-int tree[MAX_ELEMENTS*3];
+int tree[MAX_ELEMENTS * 3];
 
 void make_segment_tree(int node, int i, int j)
 {
-    if(i==j)
+    if(i == j)
     {
         tree[node] = data[i];
         return;
@@ -33,16 +33,16 @@ void make_segment_tree(int node, int i, int j)
     int mid   = (i + j) / 2;
 
     make_segment_tree(left, i, mid);
-    make_segment_tree(right, mid+1, j);
+    make_segment_tree(right, mid + 1, j);
 
     tree[node] = min(tree[left], tree[right]);
 }
 
 int query(int node, int i, int j, int a, int b)
 {
-    if(a>j || b<i)
+    if(a > j || b < i)
         return MAX_ELEMENTS;
-    if(i>=a && j<=b)
+    if(i >= a && j <= b)
         return tree[node];
 
     int left  = node * 2;
@@ -50,7 +50,7 @@ int query(int node, int i, int j, int a, int b)
     int mid   = (i + j) / 2;
 
     int p1 = query(left, i, mid, a, b);
-    int p2 = query(right, mid+1, j, a, b);
+    int p2 = query(right, mid + 1, j, a, b);
 
     return min(p1, p2);
 }
@@ -65,18 +65,18 @@ int main()
 
     scanf("%d", &testCase);
 
-    while(p<=testCase)
+    while(p <= testCase)
     {
         scanf("%d %d", &n, &q);
 
-        for(i=1; i<=n; i++)
+        for(i = 1; i <= n; i++)
             scanf("%d", &data[i]);
 
         make_segment_tree(1, 1, n);
 
         printf("Case %d:\n", p++);
 
-        for(i=1; i<=q; i++)
+        for(i = 1; i <= q; i++)
         {
             scanf("%d %d", &a, &b);
             printf("%d\n", query(1, 1, n, a, b));
