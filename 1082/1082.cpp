@@ -16,11 +16,11 @@ Algorithm    : Segment Tree
 
 using namespace std;
 
-int testCase,p=1;
+int testCase, p=1;
 int data[MAX_ELEMENTS];
 int tree[MAX_ELEMENTS*3];
 
-void make_segment_tree(int node,int i, int j)
+void make_segment_tree(int node, int i, int j)
 {
     if(i==j)
     {
@@ -61,7 +61,7 @@ int main()
     freopen("input.txt", "r", stdin);
 #endif // ONLINE_JUDGE
 
-    int n,q,k,i,a,b;
+    int n, q, k, i, a, b;
 
     scanf("%d", &testCase);
 
@@ -72,14 +72,14 @@ int main()
         for(i=1; i<=n; i++)
             scanf("%d", &data[i]);
 
-        make_segment_tree(1,1,n);
+        make_segment_tree(1, 1, n);
 
         printf("Case %d:\n", p++);
 
         for(i=1; i<=q; i++)
         {
             scanf("%d %d", &a, &b);
-            printf("%d\n", query(1,1,n,a,b));
+            printf("%d\n", query(1, 1, n, a, b));
         }
     }
     return 0;
