@@ -69,6 +69,8 @@ def LCS(s1, s2):
 
             lcs[binary_index][j] = minim(lcs[binary_index][j + 1], lcs[1 - binary_index][j])
 
+            print(lcs)
+
     return lcs[binary_index][0]
 
 
