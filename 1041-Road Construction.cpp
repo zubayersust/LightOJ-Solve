@@ -4,99 +4,91 @@ Problem No   : 1041
 Problem Name : Road Construction
 Author       : Zubayer Rahman
 Email        : zubayer.csesust@gmail.com
-Time Limit   : 0.000s
-CPU          : 0.000s
-Memory       : 0KB
-Algorithm    :
+Time Limit   : 1.000s
+CPU          : 0.005s
+Memory       : 752KB
+Algorithm    : MST - Prim's Algorithm
 */
 
 #include<bits/stdc++.h>
 
-#define pf(a) printf("%d\n",a)
-#define pf2(a,b) printf("%d %d\n",a,b)
-#define sc(a) scanf("%d",&a)
-#define sc2(a,b) scanf("%d %d",&a,&b)
-#define PB push_back
-#define MP make_pair
-#define PI acos(-1.0)
-#define ff first
-#define ll long long
-#define ss second
-#define REP(i,n) for(int i=0;i<n;i++)
-#define RREP(i,n) for(int i=n;i>0;i--)
-#define FOR(i,a,b) for(int i=a;i<=b;i++)
-#define RFOR(i,a,b) for(int i=a;i>=b;i--)
-#define QI queue<int>
-#define SI stack<int>
-#define PII pair<int,int>
-#define MAX(a,b) max(a,b)
-#define MOD 1000000007
-#define INF 1<<30
-#define mem(a,b) memset((a),(b),sizeof(a))
-#define MAX3(a,b,c) max(a,max(b,c))
-#define READ_INPUT_FILE() freopen("input.txt","r",stdin)
-
 using namespace std;
 
-#define MAX_ROADS 50
-
-class Edge
+long long MST(vector <vector<pair<int, int>>> &V, int node)
 {
-    int city1;
-    int city2;
-    int cost;
+	long long result = 0;
 
-public:
-    Edge(int city1, int city2, int cost)
-    {
-        this->city1 = city1;
-        this->city2 = city2;
-        this->cost = cost;
-    }
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
-    friend bool operator < (const Edge &E1, const Edge &E2) return E1.cost < E2.cost;
-    friend bool operator > (const Edge &E1, const Edge &E2) return E1.cost > E2.cost;
-};
+	vector<bool> visited(node + 1, false);
+
+	pq.push({0, 1});
+
+	while(!pq.empty()) {
+		pair<int, int> next_smallest_node = pq.top();
+		pq.pop();
+
+		int _weight = next_smallest_node.first;
+		int _node = next_smallest_node.second;
+
+		if(visited[_node] == false) {
+			visited[_node] = true;
+			result += _weight;
+
+			for(pair<int, int> x : V[_node])
+				if(visited[x.second] == false)
+					pq.push(x);
+		}
+	}
+
+
+	return count(visited.begin() + 1, visited.end(), true) == node ? result : -1;
+}
 
 int main()
 {
 #ifndef ONLINE_JUDGE
-    READ_INPUT_FILE();
+	freopen("input.txt", "r", stdin);
 #endif // ONLINE_JUDGE
 
-    int T, m;
+	int T;
+	int _case = 1;
 
-    scanf("%d", &T);
-    FOR(i, 1, T)
-    {
-        scanf("%d", &m);
+	scanf("%d", &T);
 
-        int _count = 0;
-        map<string, int> road;
-        string city1, city2;
-        int cost;
+	while(T--) {
+		int n, w, node = 0;
+		int node_1, node_2;
 
-        map<string, int>::iterator it;
-        FOR(j, 1, m)
-        {
-            cin >> city1 >> city2 >> cost;
+		string city1, city2;
+		map<string, int> cityMap;
 
-            it = road.find(city1);
-            if(it != road.end())
-                int city1_num = it->second;
-            else
-                int city1_num = road[city1] = ++_count;
+		scanf("%d", &n);
 
-            it = road.find(city2);
-            if(it != road.end())
-                int city2_num = it->second;
-            else
-                int city2_num = road[city2] = ++_count;
+		vector <vector<pair<int, int>>> vc(n * 2 + 1);
 
+		while(n--) {
+			cin >> city1 >> city2 >> w;
 
-        }
-    }
+			if(cityMap[city1] == 0)
+				cityMap[city1] = ++node;
 
-    return 0;
+			if(cityMap[city2] == 0)
+				cityMap[city2] = ++node;
+
+			node_1 = cityMap[city1];
+			node_2 = cityMap[city2];
+
+			vc[node_1].push_back({w, node_2});
+			vc[node_2].push_back({w, node_1});
+		}
+
+		long long result = MST(vc, node);
+
+		if(result == -1)
+			printf("Case %d: Impossible\n", _case++);
+		else printf("Case %d: %lld\n", _case++, result);
+	}
+
+	return 0;
 }
-
